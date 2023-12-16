@@ -1,10 +1,21 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React, { createContext } from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+const info = {
+  name: "kikai",
+  age: 21,
+};
+
+const InfoContext = createContext(info);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <InfoContext.Provider value={info}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </InfoContext.Provider>
+);
+
+export default InfoContext;
